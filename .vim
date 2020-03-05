@@ -1,1 +1,0 @@
-/home/kire/.vim

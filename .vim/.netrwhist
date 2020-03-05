@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/kire/.vim'
+let g:netrw_dirhist_2='/home/kire/Documents/Notes/2020-02-26'
+let g:netrw_dirhist_1='/home/kire/2020-02-26'
+let g:netrw_dirhist_0='/home/kire/Documents/Notes'
+let g:netrw_dirhist_9='/tmp/tmw1579568238533/archives/common'
+let g:netrw_dirhist_8='/tmp/tmw1579568238533/archives'
+let g:netrw_dirhist_7='/tmp/tmw1579568238533'
+let g:netrw_dirhist_6='/home/kire/Programs/matlab'
+let g:netrw_dirhist_5='/home/kire/Programs/matlab/settings'
+let g:netrw_dirhist_4='/home/kire/Programs/matlab'
