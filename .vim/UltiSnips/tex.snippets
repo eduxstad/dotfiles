@@ -369,7 +369,7 @@ endsnippet
 
 # special chars
 context "math()"
-snippet '(?<!\\)(pi|ell|tau|mu|chi|xi|theta|omega)' "lowercase greek" riA
+snippet '(?<!\\)(pi|ell|tau|mu|chi|xi|theta|omega|phi|lambda)' "lowercase greek" riA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -381,6 +381,11 @@ endsnippet
 context "math()"
 snippet Eps "Epsilon" iA
 \\mathcal{E}
+endsnippet
+
+context "math()"
+snippet ohm "Ohm" iA
+\\Omega
 endsnippet
 
 # matrices
@@ -406,12 +411,6 @@ endsnippet
 priority 10
 snippet tt "teletype" w
 \\texttt{${1:${VISUAL}}}$0
-endsnippet
-
-priority 100
-context "math()"
-snippet tt "text mode" iA
-\\text{$1}$0
 endsnippet
 
 context "math()"
@@ -555,3 +554,21 @@ snip += "\\end{bmatrix*}"
 `
 endsnippet
 
+#figure
+snippet fig "Figure" w
+\\begin{figure}[H]
+	\\centering
+	\\includegraphics[width=0.5\\textwidth]{$1}
+	\\caption{$2}
+	\label{fig:single}
+\\end{figure}$0
+endsnippet
+
+#tabular 
+snippet tabular "Table" w
+\begin{tabular}{$1}
+	\hline
+	$2
+	\hline
+\end{tabular}$0
+endsnippet
