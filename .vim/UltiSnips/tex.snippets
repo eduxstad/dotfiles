@@ -109,11 +109,6 @@ _{$1}$0
 endsnippet
 
 context "math()"
-snippet sp "superscript" iA
-^{$1}$0
-endsnippet
-
-context "math()"
 snippet pw "superscript" iA
 ^{$1}$0
 endsnippet
@@ -363,14 +358,35 @@ snippet sqrt "square root" iA
 endsnippet
 
 context "math()"
+snippet \* "cdot" iA
+\cdot 
+endsnippet
+
+context "math()"
 snippet R "real numbers" w
 \\mathbb{R}
 endsnippet
 
 # special chars
 context "math()"
-snippet '(?<!\\)(pi|ell|tau|mu|chi|xi|theta|omega|phi|lambda)' "lowercase greek" riA
+snippet '(?<!\\)(pi|ell|tau|mu|chi|xi|theta|omega|phi|lambda|wedge|lor|in|forall)' "lowercase greek" riA
 \\`!p snip.rv = match.group(1)`
+endsnippet
+
+#logic
+context "math()"
+snippet AND "logical and" iA
+\\wedge
+endsnippet
+
+context "math()"
+snippet OR "logical or" iA
+\\lor
+endsnippet
+
+context "math()"
+snippet '(?<!\\)(ex)' "exists" riA
+\\exists 
 endsnippet
 
 context "math()"
@@ -558,7 +574,7 @@ endsnippet
 snippet fig "Figure" w
 \\begin{figure}[H]
 	\\centering
-	\\includegraphics[width=0.5\\textwidth]{$1}
+	\\includegraphics[width=0.8\\textwidth]{$1}
 	\\caption{$2}
 	\label{fig:single}
 \\end{figure}$0

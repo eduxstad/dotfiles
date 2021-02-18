@@ -50,15 +50,18 @@ noremap <leader>q :q<CR>
 "	quit with saving
 noremap <leader>x :x<CR>
 
-" this current lags out the terminal
+" this currently lags out the terminal
 " set number
 " set relativenumber
 
-"	toggle relative number
+" toggle relative number
 noremap + :set relativenumber! <bar> set number!<Enter>
 
 " set mouseing
 set mouse=a
+
+" set spelllang 
+set spelllang=en_us
 
 "Open Zathura (for editing notes in Latex)
 command ZATHURA silent exe "!echo " . shellescape(expand("%")) . " | grep -oP '^[^\.]+' | xargs -I{} zathura '{}'.pdf &disown" | redraw!
