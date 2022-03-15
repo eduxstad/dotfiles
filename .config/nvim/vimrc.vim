@@ -1,22 +1,3 @@
-" Install Plug if Needed
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" Set filetype if needed
-autocmd BufRead,BufNewFile *.vue setfiletype html
-" Install Plugins
-call plug#begin('~/.vim/bundle')
-
-Plug 'leafgarland/typescript-vim'
-Plug 'lervag/vimtex'
-Plug 'SirVer/ultisnips'
-Plug 'posva/vim-vue'
-
-call plug#end()
-
 " Turn on color highlighting
 syntax enable
 " Adjust tabstop for different filetypes
@@ -35,21 +16,6 @@ set smartindent
 "	custom leader
 let mapleader = ","
 
-" vimtex
-noremap <leader>v :VimtexCompile<CR>
-let g:vimtex_view_general_viewer = 'zathura'
-let g:tex_flavor='latex'
-let g:vimtex_quickfix_enabled = 0
-let g:vimtex_mappings_enabled = 0
-
-" ultisnips
-noremap <leader>se :UltiSnipsEdit<CR>
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
-
 "   Custom bindings
 "	save file
 noremap <leader>w :w<CR>
@@ -57,6 +23,21 @@ noremap <leader>w :w<CR>
 noremap <leader>q :q<CR>
 "	quit with saving
 noremap <leader>x :x<CR>
+
+"	Clipboard 
+"	save to clipboard
+noremap <leader>y "+y
+"	paste from clipboard
+noremap <leader>p "+p
+"	paste from clipboard at end of line
+noremap <leader>P "+P
+
+"	reload current file
+noremap <leader>e :e<CR>
+"	spell toggling
+noremap <leader>s :setlocal spell!<CR>
+noremap <leader>ss :setlocal spell<CR>
+noremap <leader>S :setlocal spell<bar>setlocal spell!<CR>
 
 " this currently lags out the terminal
 " set number

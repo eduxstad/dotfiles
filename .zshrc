@@ -68,7 +68,13 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(
+	git 
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	timer
+	colored-man-pages
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,8 +104,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#set up notes environment
+#	Environment
+export EDITOR=nvim
+export VISUAL=nvim
+export PAGER=less
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
 
+# set up notes command 
 function notes() {
 	#The folder in which to store your notes within your home directory
     FOLDER="Documents/Notes"
@@ -122,3 +134,39 @@ function notes() {
 		vim +VimtexCompile $dir/notes.tex
 	fi
 }
+
+# no VIM! only nvim
+alias v="nvim"
+alias vim="nvim"
+
+#latex popup
+#credit to annoyatron255 for this function
+function tx() {
+	LATEX_DIR=/tmp/latex_temp
+	mkdir -p $LATEX_DIR
+	if [[ "$*" != *"edit"* ]]
+	then
+		echo -e "\\\\begin{align*}\n\t\n\\\\end{align*}" > $LATEX_DIR/latex_input.tex
+	fi
+	nvim +2 $LATEX_DIR/latex_input.tex
+	echo -E "${$(<$HOME/.vim/templates/shortdoc.tex)//CONTENTS/$(<$LATEX_DIR/latex_input.tex)}" > $LATEX_DIR/latex.tex
+	( cd $LATEX_DIR ; pdflatex $LATEX_DIR/latex.tex )
+	pdfcrop --margins 12 $LATEX_DIR/latex.pdf $LATEX_DIR/latex.pdf
+	pdf2svg $LATEX_DIR/latex.pdf $LATEX_DIR/latex.svg
+	pdftoppm $LATEX_DIR/latex.pdf $LATEX_DIR/latex -png -f 1 -singlefile -rx 600 -ry 600
+	if [[ "$*" == *"svg"* ]]
+	then
+		nohup xclip -selection clipboard -target image/x-inkscape-svg -i $LATEX_DIR/latex.svg 1>&- 2>&- 0<&-
+	else
+		nohup xclip -selection clipboard -target image/png -i $LATEX_DIR/latex.png 1>&- 2>&- 0<&-
+	fi
+}
+
+#ipython sympy environment
+function sym() {
+	ipython ~/.ipython_sympy.py -i --no-banner --no-confirm-exit
+}
+
+path+=('/home/kire/.local/bin')
+
+export PATH
