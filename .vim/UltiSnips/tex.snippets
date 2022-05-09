@@ -299,6 +299,10 @@ snippet () "left( right)" iA
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
+snippet || "left| right|" iA
+\left| ${1:${VISUAL}} \right| $0
+endsnippet
+
 snippet lr "left( right)" i
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
@@ -365,6 +369,11 @@ endsnippet
 context "math()"
 snippet R "real numbers" w
 \\mathbb{R}
+endsnippet
+
+context "math()"
+snippet N "natural numbers" w
+\\mathbb{N}
 endsnippet
 
 # special chars
