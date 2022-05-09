@@ -142,10 +142,10 @@ function notes() {
 	fi
 }
 
-# no VIM! only lvim
-alias v="lvim"
-alias vi="lvim"
-alias vim="lvim"
+# no VIM! only $EDITOR
+alias v=$EDITOR
+alias vi=$EDITOR
+alias vim=$EDITOR
 
 #latex popup
 #credit to annoyatron255 for this function
