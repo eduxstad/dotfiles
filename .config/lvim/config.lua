@@ -158,3 +158,12 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
+
+-- Open buffer in last known cursor position, unless invalid, inside event handler, or commit message.
+-- TODO: Convert to lvim autocommand
+vim.cmd [[
+  autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+]]
