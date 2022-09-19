@@ -18,7 +18,11 @@ lvim.colorscheme = "onedarker"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode = {
+  ["<C-s>"] = ":w<cr>",
+  ["<Tab>"] = ":bnext<CR>",
+}
+
 -- lvim.builtin.which_key.mappings.q["1"] = "<cmd>q<CR>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
