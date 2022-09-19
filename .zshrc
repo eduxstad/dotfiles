@@ -175,8 +175,7 @@ function sym() {
 	ipython ~/.ipython_sympy.py -i --no-banner --no-confirm-exit
 }
 
-path+=('/home/$USER/.local/bin')
-export PATH
+export PATH=/home/$USER/.local/bin:$PATH
 
 set -o vi
 
