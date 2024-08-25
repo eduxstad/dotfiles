@@ -32,3 +32,37 @@ lvim.builtin.nvimtree.setup.renderer.indent_width = 1
 
 lvim.transparent_window = true
 vim.opt.wrap = true
+
+-- Install Persistence
+-- lvim.plugins = {
+--   { "folke/persistence.nvim" },
+--   event = "BufReadPre",
+-- }
+
+lvim.transparent_window = true
+vim.opt.wrap = true
+
+lvim.plugins = {
+  "David-Kunz/gen.nvim",
+  opts = {
+    model = "llama3.1",
+  }
+}
+
+require('gen').prompts['Fix_Code'] = {
+  prompt = "Fix the following code. Only ouput the result in format ```$filetype\n...\n```:\n```$filetype\n$text\n```",
+  replace = true,
+  extract = "```$filetype\n(.-)```"
+}
+
+-- table.insert(lvim.plugins, {
+--   "zbirenbaum/copilot-cmp",
+--   event = "InsertEnter",
+--   dependencies = { "zbirenbaum/copilot.lua" },
+--   config = function()
+--     vim.defer_fn(function()
+--       require("copilot").setup() -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+--       require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+--     end, 100)
+--   end,
+-- })
