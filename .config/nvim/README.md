@@ -34,13 +34,13 @@ nvim
 ```
 
 ### Modifications
-[x] Autocommand to close neo-tree on BufEnter
-[x] Add AstroReload command
-[x] Add normal mode mapping "<Tab>" to move to next buffer ("<C-w>w")
-[x] Enable spell and spelllang "en"
-[x] Turn on line wrap
-[x] lvim ToggleTerm mappings (for compatibility with tenkeyless)
-[x] Avante
+- [x] Autocommand to close neo-tree on BufEnter
+- [x] Add AstroReload command
+- [x] Add normal mode mapping "<Tab>" to move to next buffer ("<C-w>w")
+- [x] Enable spell and spelllang "en"
+- [x] Turn on line wrap
+- [x] lvim ToggleTerm mappings (for compatibility with tenkeyless)
+- [x] Avante
 
 ### Todo
-[] Open PR to update astrovim documentation for terminal toggle
+- [ ] Open PR to update astrovim documentation for terminal toggle
