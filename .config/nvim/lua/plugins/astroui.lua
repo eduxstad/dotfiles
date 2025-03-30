@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroUI provides the basis for configuring the AstroNvim User Interface
 -- Configuration documentation can be found with `:h astroui`
@@ -37,10 +37,17 @@ if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 --     },
 --   },
 -- }
--- ---@type LazySpec
--- return {
---   "nvim-neo-tree/neo-tree.nvim",
---   opts = {
---     
---   } 
--- }
+---@type LazySpec
+return {
+  "nvim-neo-tree/neo-tree.nvim",
+  opts = {
+    event_handlers = {
+      {
+        event = "file_open_requested",
+        handler = function()
+          require("neo-tree.command").execute({ action = "close" })
+        end
+      },
+    }
+  },
+}

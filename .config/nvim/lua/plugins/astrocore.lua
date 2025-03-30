@@ -10,15 +10,6 @@ return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
   opts = {
-    autocmds = {
-      autoclosetree = {
-        {
-          event = { "BufEnter" },
-          desc = "Close neo-tree when opening a file",
-          callback = function() require('neo-tree.command').execute({ action = "close" }) end,
-        },
-      },
-    },
     commands = {
       -- key is the command name
       AstroReload = {
